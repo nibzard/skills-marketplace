@@ -323,6 +323,31 @@
         "./templates/chart-description.md",
         "./templates/dashboard-layout.md"
       ]
+    },
+    {
+      "name": "marimo-notebook",
+      "source": "./skills/marimo",
+      "description": "Create, edit, and deploy reactive Python notebooks with marimo. Use when working with data analysis, interactive visualizations, web app development, or when you need reproducible computational notebooks.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Data Science Team",
+        "email": "datascience@skills-marketplace.dev"
+      },
+      "homepage": "https://docs.skills-marketplace.dev/skills/marimo-notebook",
+      "license": "MIT",
+      "keywords": ["marimo", "notebook", "data-analysis", "reactive", "web-app", "dashboard"],
+      "category": "data-analytics",
+      "tags": ["marimo", "notebook", "reactive", "python", "data-science", "interactive"],
+      "strict": true,
+      "utils": [
+        "./utils/marimo_helper.py"
+      ],
+      "patterns": [
+        "./snippets/patterns.py"
+      ],
+      "scripts": [
+        "./scripts/notebook_converter.py"
+      ]
     }
   ]
 }
