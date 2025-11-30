@@ -30,14 +30,7 @@
       "keywords": ["git", "automation", "workflow", "version-control", "commit-messages", "branches"],
       "category": "development-tools",
       "tags": ["automation", "git", "productivity", "development"],
-      "strict": true,
-      "commands": [
-        "./commands/git-commands.md"
-      ],
-      "agents": [
-        "./agents/commit-generator.md",
-        "./agents/branch-manager.md"
-      ]
+      "strict": true
     },
     {
       "name": "code-reviewer",
@@ -53,21 +46,7 @@
       "keywords": ["code-review", "security", "best-practices", "quality", "static-analysis"],
       "category": "development-tools",
       "tags": ["security", "quality", "review", "development"],
-      "strict": true,
-      "allowed-tools": "Read, Grep, Glob",
-      "hooks": {
-        "PreToolUse": [
-          {
-            "matcher": "Write|Edit",
-            "hooks": [
-              {
-                "type": "command",
-                "command": "${CLAUDE_PLUGIN_ROOT}/scripts/pre-write-check.sh"
-              }
-            ]
-          }
-        ]
-      }
+      "strict": true
     },
     {
       "name": "data-analysis",
@@ -83,20 +62,7 @@
       "keywords": ["data-analysis", "excel", "csv", "statistics", "visualization", "pandas"],
       "category": "data-analytics",
       "tags": ["data", "analysis", "excel", "statistics"],
-      "strict": true,
-      "commands": [
-        "./commands/data-commands.md"
-      ],
-      "scripts": [
-        "./scripts/analyze.py",
-        "./scripts/visualize.py"
-      ],
-      "mcpServers": {
-        "data-processor": {
-          "command": "${CLAUDE_PLUGIN_ROOT}/servers/data-server.py",
-          "args": ["--config", "${CLAUDE_PLUGIN_ROOT}/config/data-config.json"]
-        }
-      }
+      "strict": true
     },
     {
       "name": "excel-analyzer",
@@ -112,11 +78,7 @@
       "keywords": ["excel", "spreadsheet", "pivot-tables", "business-intelligence", "data-analysis"],
       "category": "data-analytics",
       "tags": ["excel", "business", "analytics", "productivity"],
-      "strict": true,
-      "templates": [
-        "./templates/report.md",
-        "./templates/dashboard.md"
-      ]
+      "strict": true
     },
     {
       "name": "documentation-helper",
@@ -132,12 +94,7 @@
       "keywords": ["documentation", "api-docs", "readme", "technical-writing", "markdown"],
       "category": "documentation",
       "tags": ["documentation", "writing", "markdown", "api"],
-      "strict": true,
-      "templates": [
-        "./templates/readme.md",
-        "./templates/api-doc.md",
-        "./templates/changelog.md"
-      ]
+      "strict": true
     },
     {
       "name": "deployment-tools",
@@ -153,13 +110,7 @@
       "keywords": ["deployment", "ci-cd", "infrastructure", "devops", "automation"],
       "category": "devops-infrastructure",
       "tags": ["deployment", "devops", "automation", "infrastructure"],
-      "strict": true,
-      "commands": [
-        "./commands/deploy-commands.md"
-      ],
-      "agents": [
-        "./agents/deployment-planner.md"
-      ]
+      "strict": true
     },
     {
       "name": "monitoring-helper",
@@ -175,11 +126,7 @@
       "keywords": ["monitoring", "logs", "performance", "troubleshooting", "observability"],
       "category": "devops-infrastructure",
       "tags": ["monitoring", "logs", "performance", "operations"],
-      "strict": true,
-      "scripts": [
-        "./scripts/log-analyzer.py",
-        "./scripts/metrics-processor.py"
-      ]
+      "strict": true
     },
     {
       "name": "security-scanner",
@@ -195,24 +142,7 @@
       "keywords": ["security", "vulnerability-scanning", "compliance", "audit", "security-best-practices"],
       "category": "security",
       "tags": ["security", "audit", "compliance", "vulnerability"],
-      "strict": true,
-      "allowed-tools": "Read, Grep, Glob, Bash",
-      "commands": [
-        "./commands/security-commands.md"
-      ],
-      "hooks": {
-        "PostToolUse": [
-          {
-            "matcher": "Write|Edit",
-            "hooks": [
-              {
-                "type": "command",
-                "command": "${CLAUDE_PLUGIN_ROOT}/scripts/security-scan.sh"
-              }
-            ]
-          }
-        ]
-      }
+      "strict": true
     },
     {
       "name": "task-manager",
@@ -228,12 +158,7 @@
       "keywords": ["task-management", "project-planning", "productivity", "organization", "workflow"],
       "category": "productivity",
       "tags": ["productivity", "tasks", "planning", "organization"],
-      "strict": true,
-      "templates": [
-        "./templates/project-plan.md",
-        "./templates/task-list.md",
-        "./templates/status-report.md"
-      ]
+      "strict": true
     },
     {
       "name": "meeting-assistant",
@@ -249,12 +174,7 @@
       "keywords": ["meetings", "notes", "action-items", "agenda", "follow-up", "productivity"],
       "category": "productivity",
       "tags": ["meetings", "notes", "productivity", "organization"],
-      "strict": true,
-      "templates": [
-        "./templates/meeting-agenda.md",
-        "./templates/meeting-notes.md",
-        "./templates/action-items.md"
-      ]
+      "strict": true
     },
     {
       "name": "email-processor",
@@ -270,11 +190,7 @@
       "keywords": ["email", "communication", "templates", "organization", "productivity"],
       "category": "productivity",
       "tags": ["email", "communication", "productivity", "templates"],
-      "strict": true,
-      "templates": [
-        "./templates/email-response.md",
-        "./templates/email-organization.md"
-      ]
+      "strict": true
     },
     {
       "name": "report-generator",
@@ -290,15 +206,7 @@
       "keywords": ["reports", "business-intelligence", "data-visualization", "analytics", "insights"],
       "category": "data-analytics",
       "tags": ["reports", "analytics", "business", "insights"],
-      "strict": true,
-      "templates": [
-        "./templates/executive-summary.md",
-        "./templates/data-report.md",
-        "./templates/progress-report.md"
-      ],
-      "scripts": [
-        "./scripts/report-builder.py"
-      ]
+      "strict": true
     },
     {
       "name": "visualization-helper",
@@ -314,15 +222,7 @@
       "keywords": ["visualization", "charts", "graphs", "data-visualization", "plotting"],
       "category": "data-analytics",
       "tags": ["visualization", "charts", "data", "analytics"],
-      "strict": true,
-      "scripts": [
-        "./scripts/chart-generator.py",
-        "./scripts/dashboard-creator.py"
-      ],
-      "templates": [
-        "./templates/chart-description.md",
-        "./templates/dashboard-layout.md"
-      ]
+      "strict": true
     },
     {
       "name": "marimo-notebook",
@@ -338,16 +238,7 @@
       "keywords": ["marimo", "notebook", "data-analysis", "reactive", "web-app", "dashboard"],
       "category": "data-analytics",
       "tags": ["marimo", "notebook", "reactive", "python", "data-science", "interactive"],
-      "strict": true,
-      "utils": [
-        "./utils/marimo_helper.py"
-      ],
-      "patterns": [
-        "./snippets/patterns.py"
-      ],
-      "scripts": [
-        "./scripts/notebook_converter.py"
-      ]
+      "strict": true
     }
   ]
 }
