@@ -239,6 +239,22 @@
       "category": "data-analytics",
       "tags": ["marimo", "notebook", "reactive", "python", "data-science", "interactive"],
       "strict": true
+    },
+    {
+      "name": "claude-thread-publisher",
+      "source": "./skills/claude-thread-publisher",
+      "description": "Publish Claude Code conversation threads as static HTML pages hosted on GitHub Gists, with shareable gistpreview permalinks. Use when you want to share, export, or archive Claude Code conversations.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Publishing Team",
+        "email": "publishing@skills-marketplace.dev"
+      },
+      "homepage": "https://docs.skills-marketplace.dev/skills/claude-thread-publisher",
+      "license": "MIT",
+      "keywords": ["thread-publisher", "gists", "sharing", "html", "export", "github", "conversation"],
+      "category": "productivity",
+      "tags": ["sharing", "threads", "gists", "html", "export", "github", "productivity"],
+      "strict": true
     }
   ]
 }
