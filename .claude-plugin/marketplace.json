@@ -255,6 +255,23 @@
       "category": "productivity",
       "tags": ["sharing", "threads", "gists", "html", "export", "github", "productivity"],
       "strict": true
+    },
+    {
+      "name": "marp-slide-quality",
+      "source": "./skills/marp-slide-quality",
+      "description": "Analyze and improve Marp markdown presentations using SlideGauge. Use when working with Marp presentations, slide decks, or when user asks to check, analyze, improve, or validate slide quality.",
+      "version": "1.0.0",
+      "author": {
+        "name": "nibzard",
+        "email": "nibzard@github.com"
+      },
+      "homepage": "https://github.com/nibzard/marp-slide-quality",
+      "repository": "https://github.com/nibzard/marp-slide-quality",
+      "license": "MIT",
+      "keywords": ["marp", "presentations", "slides", "slide-quality", "markdown", "analysis"],
+      "category": "productivity",
+      "tags": ["presentations", "slides", "markdown", "quality", "analysis"],
+      "strict": true
     }
   ]
 }
