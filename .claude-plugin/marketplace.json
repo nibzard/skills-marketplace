@@ -255,6 +255,22 @@
       "category": "productivity",
       "tags": ["sharing", "threads", "gists", "html", "export", "github", "productivity"],
       "strict": true
+    },
+    {
+      "name": "pentest-toolkit",
+      "source": "./skills/pentest-toolkit",
+      "description": "AI-Powered Security Testing Toolkit - Comprehensive penetration testing tools for authorized security assessments. Use when conducting professional security testing, vulnerability assessments, or penetration testing on systems you own or have explicit authorization to test.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Security Testing Team",
+        "email": "security@skills-marketplace.dev"
+      },
+      "homepage": "https://docs.skills-marketplace.dev/skills/pentest-toolkit",
+      "license": "MIT",
+      "keywords": ["pentest", "security-testing", "vulnerability-assessment", "penetration-testing", "ethical-hacking", "security-audit"],
+      "category": "security",
+      "tags": ["security", "testing", "pentest", "vulnerability", "assessment", "authorized-testing"],
+      "strict": true
     }
   ]
 }
