@@ -4,7 +4,11 @@ description: >
   Publish Claude Code conversation threads as static HTML pages hosted on GitHub Gists,
   with shareable gistpreview links. Use when the user asks to share, publish, or delete
   a Claude Code thread.
-allowed-tools: Read, Write, Edit, Bash
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+  - Bash(python:*)
 ---
 
 # Claude Thread Publisher

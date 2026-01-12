@@ -1,5 +1,7 @@
 # Contributing to Skills Marketplace
 
+Note: This repository is distributed as a single Claude Code plugin that bundles multiple Skills. Marketplace mode and `.claude-plugin/marketplace.json` are deprecated here. Install via `/plugin install nibzard/skills-marketplace` and add new Skills under `skills/<your-skill>/`.
+
 Thank you for your interest in contributing to the Skills Marketplace! This guide will help you get started with contributing skills, improving documentation, and enhancing the marketplace ecosystem.
 
 ## Table of Contents
@@ -43,12 +45,10 @@ Thank you for your interest in contributing to the Skills Marketplace! This guid
    git checkout -b feature-your-skill-name
    ```
 
-4. **Test Marketplace Locally**:
+4. **Test Plugin Locally**:
    ```bash
-   # Test marketplace installation
-   /plugin marketplace add .
-   # Test skill installation
-   /plugin install skill-name@skills-marketplace
+   # Install the plugin from the working directory
+   /plugin install .
    ```
 
 ## How to Contribute
@@ -97,31 +97,15 @@ We welcome contributions of new skills that address specific workflows and probl
 
 4. **Test Your Skill**:
    ```bash
-   # Test skill installation
-   /plugin marketplace add .
-   /plugin install your-skill-name@skills-marketplace
+   # Reinstall the plugin so Claude discovers your new Skill
+   /plugin install .
 
    # Test skill functionality
    # Ask Claude questions that should trigger your skill
    ```
 
-5. **Update Marketplace Configuration**:
-   Add your skill to `.claude-plugin/marketplace.json`:
-
-   ```json
-   {
-     "name": "your-skill-name",
-     "source": "./skills/your-skill-name",
-     "description": "Brief description of your skill",
-     "version": "1.0.0",
-     "author": {
-       "name": "Your Name",
-       "email": "your.email@example.com"
-     },
-     "keywords": ["relevant", "keywords", "for", "discovery"],
-     "category": "appropriate-category"
-   }
-   ```
+5. **No Manifest Edits Required**:
+   This plugin auto-discovers skills under `skills/<your-skill>/SKILL.md`. Keep content one level deep and reference any supporting files from `SKILL.md`.
 
 #### Skill Quality Standards
 
@@ -248,18 +232,12 @@ style(marketplace): fix JSON formatting
 
 1. **Install and Test**:
    ```bash
-   # Install marketplace locally
-   /plugin marketplace add .
-
-   # Test specific skill
-   /plugin install your-skill@skills-marketplace
+   # Install plugin from working tree
+   /plugin install .
    ```
 
 2. **Validate Configuration**:
    ```bash
-   # Check JSON syntax
-   cat .claude-plugin/marketplace.json | jq .
-
    # Validate skill structure
    /plugin validate
    ```
@@ -363,8 +341,8 @@ Provide concrete, realistic examples:
 #### 1. Functional Testing
 Test that skills work as intended:
 ```bash
-# Test skill installation
-/plugin install your-skill@skills-marketplace
+# Install plugin from working tree
+/plugin install .
 
 # Test skill discovery
 What skills do you have available for [use case]?
@@ -399,8 +377,7 @@ All pull requests undergo review focusing on:
 - **Examples**: Are examples clear and helpful?
 - **Error Handling**: Does the skill handle errors gracefully?
 
-#### 2. Marketplace Integration
-- **Configuration**: Is marketplace.json updated correctly?
+#### 2. Plugin Integration
 - **Discovery**: Will Claude find and use the skill appropriately?
 - **Compatibility**: Does the skill conflict with existing skills?
 - **Dependencies**: Are dependencies documented and reasonable?

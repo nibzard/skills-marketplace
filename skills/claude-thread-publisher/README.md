@@ -6,8 +6,8 @@ A comprehensive skill for publishing Claude Code conversation threads as beautif
 
 ### Installation
 ```bash
-/plugin marketplace add nibzard/skills-marketplace
-/plugin install claude-thread-publisher@skills-marketplace
+# Install the plugin bundle
+/plugin install nibzard/skills-marketplace
 ```
 
 ### Basic Usage
@@ -84,7 +84,7 @@ This skill integrates seamlessly with:
 - **Claude Code**: Automatically detects current sessions
 - **GitHub Gists**: Uses official GitHub API
 - **gistpreview.github.io**: Static HTML hosting service
-- **Skills Marketplace**: Centralized discovery and installation
+- **Plugin Bundle**: Distributed as part of this plugin
 
 ## Requirements
 

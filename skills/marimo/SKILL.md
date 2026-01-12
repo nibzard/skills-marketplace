@@ -1,7 +1,7 @@
 ---
-name: marimo-notebook
+name: marimo
 description: Assistant for creating, editing, and debugging reactive Python notebooks with marimo. Use when you need to build marimo notebooks, debug reactive execution, add interactive UI elements, or convert traditional notebooks to marimo format. Provides code patterns, utility functions, and best practices for marimo development.
-allowed-tools: Read, Write, Edit, Bash, Grep, Glob
+allowed-tools: Read, Write, Edit, Grep, Glob
 ---
 
 # Marimo Notebook Assistant
@@ -64,6 +64,7 @@ Marimo notebooks eliminate hidden state through reactive execution:
 ### Basic Structure
 ```python
 import marimo
+import numpy as np
 
 app = marimo.App(
     title="Your App Title",
@@ -83,7 +84,7 @@ def __(pd):
     """Load or create data"""
     df = pd.DataFrame({
         'x': range(100),
-        'y': pd.np.random.randn(100)
+        'y': np.random.randn(100)
     })
     return df
 
@@ -119,41 +120,15 @@ if __name__ == "__main__":
 4. **Evaluation**: Display metrics and validation results
 5. **Prediction**: Interface for making predictions on new data
 
-## Utility Scripts Available
+## Code Patterns and Snippets
 
-### marimo_helper.py
-Comprehensive utility script for marimo development:
-
-```bash
-# Check marimo installation
-python utils/marimo_helper.py check
-
-# Validate notebook structure
-python utils/marimo_helper.py validate notebook.py
-
-# Run notebook with options
-python utils/marimo_helper.py run notebook.py --mode edit --port 8080
-
-# Create new project
-python utils/marimo_helper.py create my_project --template basic
-
-# Get code snippets
-python utils/marimo_helper.py snippet ui_controls
-python utils/marimo_helper.py snippet data_processing
-```
-
-### Key Utilities:
-- **validate_marimo_notebook()**: Check syntax and structure
-- **analyze_marimo_notebook()**: Analyze dependencies and components
-- **run_marimo_notebook()**: Execute with specific modes and ports
-- **suggest_optimizations()**: Performance improvement suggestions
-- **create_marimo_project()**: Generate new project templates
+Use the bundled snippets library for ready-to-use patterns.
 
 ## Code Patterns Library
 
 ### Available Patterns
 ```python
-from patterns import MarimoPatterns
+from snippets.patterns import MarimoPatterns
 
 # Get basic app structure
 basic_app = MarimoPatterns.BASIC_APP
@@ -178,7 +153,7 @@ tabs = MarimoPatterns.TABS_LAYOUT
 ## Interactive Development Workflow
 
 ### 1. Notebook Creation
-When user wants to create a new marimo notebook:
+When creating a new marimo notebook:
 
 1. **Understand Requirements**:
    - What type of data/analysis?
@@ -187,10 +162,7 @@ When user wants to create a new marimo notebook:
    - Any specific data sources?
 
 2. **Set Up Structure**:
-   ```python
-   # Create new notebook with utility
-   python utils/marimo_helper.py create project_name --template dashboard
-   ```
+   Start from the Basic Structure example above and choose a layout pattern from `MarimoPatterns`.
 
 3. **Customize Based on Needs**:
    - Modify data loading section
@@ -199,17 +171,10 @@ When user wants to create a new marimo notebook:
    - Create appropriate visualizations
 
 ### 2. Debugging Existing Notebooks
-When user has issues with marimo notebook:
+When issues arise with a marimo notebook:
 
-1. **Run Validation**:
-   ```python
-   python utils/marimo_helper.py validate problem_notebook.py
-   ```
-
-2. **Analyze Structure**:
-   ```python
-   python utils/marimo_helper.py analyze problem_notebook.py
-   ```
+1. **Review Structure**: Check cell boundaries and dependencies
+2. **Analyze Dependencies**: Ensure variables flow top-to-bottom without cycles
 
 3. **Apply Fixes**:
    - Fix circular dependencies
@@ -218,14 +183,9 @@ When user has issues with marimo notebook:
    - Improve UI layout
 
 ### 3. Converting from Jupyter
-When user wants to convert existing notebook:
+When converting existing notebooks, manually refactor:
 
-1. **Use Conversion Utility**:
-   ```python
-   python utils/marimo_helper.py j2m notebook.ipynb -o marimo_notebook.py
-   ```
-
-2. **Manual Refactoring**:
+1. **Manual Refactoring**:
    - Break down large cells
    - Add reactive dependencies
    - Replace print statements with UI elements

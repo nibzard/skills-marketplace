@@ -1,7 +1,12 @@
 ---
 name: marp-slide-quality
-description: Analyze and improve Marp markdown presentations using SlideGauge. Use when working with Marp presentations, slide decks, or when user asks to check, analyze, improve, or validate slide quality. Requires slidegauge package (installed via uvx).
-allowed-tools: Read, Edit, Bash, Grep, Glob
+description: Analyze and improve Marp markdown presentations using SlideGauge. Use when working with Marp presentations, slide decks, or when user asks to check, analyze, improve, or validate slide quality.
+allowed-tools:
+  - Read
+  - Edit
+  - Grep
+  - Glob
+  - Bash(uvx:*)
 ---
 
 # Marp Slide Quality Skill
@@ -58,6 +63,12 @@ uvx --from git+https://github.com/kantord/SlideGauge slidegauge analyze presenta
 ```
 
 Compare before/after scores to ensure meaningful improvements.
+
+## Requirements
+
+- `uvx` available in the environment
+- Network access to fetch SlideGauge from GitHub on first use
+- Optional: `jq` if you want to pretty-print JSON output locally
 
 ## SlideGauge Rules Reference
 

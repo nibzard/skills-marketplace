@@ -1,86 +1,50 @@
-# Skills Marketplace Plugin
+# Skills Plugin
 
-This directory contains the Claude Code plugin configuration for the Skills Marketplace.
+This directory contains the Claude Code plugin configuration for this repository.
 
 ## Plugin Structure
 
 ```
 .claude-plugin/
-├── marketplace.json      # Main marketplace configuration
-├── README.md             # This file
-└── skills/               # Skill packages (symbolic link to ../skills/)
+├── plugin.json     # Plugin manifest
+└── README.md       # This file
+skills/
+├── marimo/
+├── marp-slide-quality/
+├── claude-thread-publisher/
+└── pentest-toolkit/
 ```
 
 ## Installation
 
-To install this marketplace in Claude Code:
+Install this plugin in Claude Code:
 
 ```bash
-# Add the marketplace from GitHub (recommended)
-/plugin marketplace add nibzard/skills-marketplace
+# Install directly from GitHub
+/plugin install nibzard/skills-marketplace
 
-# Browse available skills
-/plugin
-
-# Install a specific skill
-/plugin install git-automation@skills-marketplace
+# Or clone locally and add from a path
+git clone https://github.com/nibzard/skills-marketplace.git
+/plugin install ./skills-marketplace
 ```
 
-## Configuration
+The plugin exposes the bundled Skills automatically. Claude will discover and invoke them when relevant.
 
-The marketplace is configured in `marketplace.json` with:
+## Skills Bundled
 
-- **Marketplace metadata**: Name, version, owner information
-- **Skill catalog**: Available skills with descriptions and metadata
-- **Categories**: Organized skill groupings
-- **Dependencies**: Required tools and packages
-
-## Skills Available
-
-### Development Tools
-- **git-automation**: Git workflow automation and commit message generation
-- **code-reviewer**: Code quality analysis and security review
-
-### Data & Analytics
-- **data-analysis**: Data processing, statistics, and visualization
-- **excel-analyzer**: Excel spreadsheet analysis and business insights
-
-### Documentation
-- **documentation-helper**: Technical documentation generation and maintenance
-
-### Productivity
-- **task-manager**: Project planning and task organization
-
-## Usage
-
-Once installed, skills are automatically available. Claude will invoke relevant skills based on your requests:
-
-```bash
-# Git automation
-"I just made some changes to my code. Can you help me write a good commit message?"
-
-# Data analysis
-"Can you analyze this sales data spreadsheet and tell me what insights you find?"
-
-# Documentation
-"Please help me write documentation for this new API endpoint."
-
-# Task management
-"I need to plan a new project. Can you help me break it down into tasks?"
-```
+- marimo: Assistant for reactive Python notebooks (marimo)
+- marp-slide-quality: Analyze and improve Marp slide decks using SlideGauge
+- claude-thread-publisher: Publish Claude Code threads to GitHub Gists
+- pentest-toolkit: Agent-oriented security testing scripts (uv-based)
 
 ## Contributing
 
-To add new skills to this marketplace:
-
-1. Create skill in `../skills/skill-name/`
-2. Add skill to `marketplace.json` plugins array
-3. Test skill installation and functionality
-4. Submit pull request
+1. Add a new Skill under `skills/<your-skill>/SKILL.md`
+2. Keep supporting files one level deep and referenced from `SKILL.md`
+3. Use `allowed-tools` to restrict tool usage appropriately
+4. Submit a pull request
 
 ## Support
 
-For issues or questions about this marketplace:
-- Create an issue in the repository
-- Check the main project documentation
-- Review skill-specific documentation in each skill directory
+- Open an issue in the repository
+- Review each skill’s `SKILL.md` for usage and requirements

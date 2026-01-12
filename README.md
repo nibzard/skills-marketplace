@@ -25,14 +25,15 @@ Agent Skills are modular capabilities that extend Claude's functionality through
 
 ## Quick Start
 
-### 1. Add this Marketplace
+### 1. Install the Plugin
 
 ```bash
-# Add the marketplace from GitHub (recommended)
-/plugin marketplace add nibzard/skills-marketplace
+# Install directly from GitHub (recommended)
+/plugin install nibzard/skills-marketplace
 
-# Or directly from the repository URL
-/plugin marketplace add https://github.com/nibzard/skills-marketplace.git
+# Or install from a local clone
+git clone https://github.com/nibzard/skills-marketplace.git
+/plugin install ./skills-marketplace
 ```
 
 ### 2. Browse Available Skills
@@ -45,26 +46,22 @@ What Skills are available?
 /plugin
 ```
 
-### 3. Install Skills
+### 3. Use the Skills
 
-```bash
-# Install a specific skill
-/plugin install git-automation@skills-marketplace
-
-# Claude will automatically use the skill when relevant
-```
+Once the plugin is installed, Claude lists available Skills and invokes them automatically when relevant to your request.
 
 ## Marketplace Structure
 
 ```
 skills-marketplace/
 ├── .claude-plugin/
-│   └── marketplace.json      # Marketplace configuration
-├── .claude/skills/            # Project-specific skills
+│   └── plugin.json           # Plugin manifest
+├── .claude/skills/           # Project-specific skills
 ├── skills/                    # Distributed skill packages
-│   ├── git-automation/
-│   ├── data-analysis/
-│   └── documentation-helper/
+│   ├── marimo/
+│   ├── marp-slide-quality/
+│   ├── claude-thread-publisher/
+│   └── pentest-toolkit/
 ├── examples/                  # Example skills and templates
 ├── docs/                      # Additional documentation
 └── README.md                  # This file
@@ -72,45 +69,27 @@ skills-marketplace/
 
 ## Available Skills
 
-### Development Tools
+### Bundled Skills
 
-- **git-automation**: Automated commit messages, branch management, and repository workflows
-- **code-reviewer**: Code quality analysis, security checks, and best practices review
-- **documentation-helper**: Automated documentation generation and maintenance
-
-### Data & Analytics
-
-- **data-analysis**: Excel processing, CSV analysis, and statistical operations
-- **report-generator**: Create formatted reports from various data sources
-- **visualization-helper**: Chart creation and data visualization guidance
-
-### Productivity
-
-- **task-manager**: Project planning and task organization
-- **meeting-assistant**: Meeting notes, action items, and follow-up automation
-- **email-processor**: Email organization and response generation
-
-### Technical Operations
-
-- **deployment-tools**: CI/CD pipeline management and deployment automation
-- **monitoring-helper**: Log analysis and system monitoring workflows
-- **security-scanner**: Security vulnerability analysis and remediation guidance
+- **marimo**: Reactive Python notebook assistant
+- **marp-slide-quality**: Analyze Marp slides with SlideGauge
+- **claude-thread-publisher**: Publish Claude threads to GitHub Gists
+- **pentest-toolkit**: Agent-oriented security testing scripts
 
 ## Installation Methods
 
 ### For Users
 
-1. **Install from Marketplace** (Recommended):
+1. **Install as Plugin** (Recommended):
    ```bash
-   /plugin marketplace add nibzard/skills-marketplace
-   /plugin install git-automation@skills-marketplace
+   /plugin install nibzard/skills-marketplace
    ```
 
-2. **Manual Installation**:
+2. **Manual Installation of Individual Skills**:
    ```bash
    git clone https://github.com/nibzard/skills-marketplace.git
-   cd skills-marketplace/skills/skill-name
-   cp -r ~/.claude/skills/
+   mkdir -p ~/.claude/skills
+   cp -r skills-marketplace/skills/<skill-name> ~/.claude/skills/
    ```
 
 ### For Developers
@@ -118,17 +97,17 @@ skills-marketplace/
 1. **Fork and Customize**:
    ```bash
    # Fork on GitHub, then add your fork
-   /plugin marketplace add your-username/skills-marketplace
+   /plugin install your-username/skills-marketplace
    # Add your custom skills to the forked repository
    ```
 
-2. **Create Private Marketplace**:
+2. **Create Private Plugin**:
    ```bash
    # Clone and customize for your organization
    git clone https://github.com/your-org/skills-marketplace.git
    # Add company-specific skills
    # Host on private git repository
-   /plugin marketplace add https://git.company.com/skills-marketplace.git
+   /plugin install https://git.company.com/skills-marketplace.git
    ```
 
 ## Skill Categories
@@ -208,8 +187,8 @@ description: Analyze text for sentiment, entities, and patterns. Use when proces
    # Create your skill files
    ```
 
-3. **Update Marketplace**:
-   Add your skill to `.claude-plugin/marketplace.json`
+3. **Verify Plugin**:
+   Ensure your new Skill folder contains `SKILL.md` and supporting files, and that `What Skills are available?` lists it after reinstalling the plugin.
 
 4. **Submit Pull Request**:
    ```bash
@@ -221,50 +200,12 @@ description: Analyze text for sentiment, entities, and patterns. Use when proces
 
 ## Configuration
 
-### Marketplace Configuration
-
-The marketplace is defined in `.claude-plugin/marketplace.json`:
+For team deployments, you can preconfigure enabled plugins in `.claude/settings.json`:
 
 ```json
 {
-  "name": "skills-marketplace",
-  "owner": {
-    "name": "Skills Marketplace Team",
-    "email": "team@skills-marketplace.com"
-  },
-  "metadata": {
-    "description": "A comprehensive marketplace for Claude Code Agent Skills",
-    "version": "1.0.0"
-  },
-  "plugins": [
-    {
-      "name": "git-automation",
-      "source": "./skills/git-automation",
-      "description": "Automated Git workflows and repository management",
-      "category": "development-tools",
-      "keywords": ["git", "automation", "workflow"]
-    }
-  ]
-}
-```
-
-### Team Configuration
-
-For team deployments, configure in `.claude/settings.json`:
-
-```json
-{
-  "extraKnownMarketplaces": {
-    "company-skills": {
-      "source": {
-        "source": "github",
-        "repo": "your-org/skills-marketplace"
-      }
-    }
-  },
   "enabledPlugins": [
-    "git-automation@company-skills",
-    "code-reviewer@company-skills"
+    "nibzard/skills-marketplace"
   ]
 }
 ```
@@ -317,7 +258,7 @@ This marketplace is licensed under the [MIT License](LICENSE). Individual skills
 
 ## Changelog
 
-### v1.0.0 (2025-11-30)
+### v1.0.0
 - Initial marketplace release
 - Core skill categories established
 - Basic marketplace functionality

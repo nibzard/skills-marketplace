@@ -1,5 +1,7 @@
 # Skills Development Guide
 
+Note: This repository is distributed as a single plugin bundling multiple Skills. Marketplace examples in this document are general; for this repo install via `/plugin install nibzard/skills-marketplace`.
+
 This comprehensive guide covers how to create, test, and distribute Agent Skills for Claude Code. Learn best practices for skill development, testing strategies, and deployment workflows.
 
 ## Overview
@@ -615,18 +617,18 @@ if __name__ == "__main__":
 
 ### Integration Testing
 
-#### Marketplace Testing
+#### Plugin Testing
 
-Test skill installation from marketplace:
+Test skill discovery from a local plugin:
 
 ```bash
-# Test marketplace addition
-/plugin marketplace add ./skills-marketplace
+# Install plugin from local path
+/plugin install ./skills-marketplace
 
-# Test skill installation
-/plugin install excel-analyzer@skills-marketplace
+# Verify the new Skill appears
+What Skills are available?
 
-# Test skill functionality
+# Exercise the skill
 Can you help me analyze some Excel data?
 ```
 
