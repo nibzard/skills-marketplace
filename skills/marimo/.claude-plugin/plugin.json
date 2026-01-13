@@ -7,5 +7,6 @@
   "author": {
     "name": "Data Science Team",
     "email": "datascience@skills-marketplace.dev"
-  }
+  },
+  "skills": "./skills/"
 }

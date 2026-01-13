@@ -7,5 +7,6 @@
   "author": {
     "name": "Publishing Team",
     "email": "publishing@skills-marketplace.dev"
-  }
+  },
+  "skills": "./skills/"
 }
