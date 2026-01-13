@@ -30,8 +30,10 @@ from typing import Optional, Tuple
 # --- Optional dependency: google-genai ---
 try:
     from google import genai  # type: ignore
+    from google.genai import types  # type: ignore
 except Exception:
     genai = None
+    types = None  # type: ignore
 
 # --- Paths ---
 SKILL_DIR = Path(__file__).resolve().parent.parent
@@ -152,63 +154,61 @@ def generate_with_gemini(params: Params, final_prompt: str) -> bytes:
     """
     Calls Gemini image generation via google-genai.
 
-    NOTE: Exact model names/capabilities may change; keep this minimal and adaptable.
+    Uses gemini-3-pro-image-preview with streaming for image generation.
     """
     api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or os.getenv("GENAI_API_KEY")
     if not api_key:
         raise RuntimeError("Missing API key. Set GEMINI_API_KEY (or GOOGLE_API_KEY / GENAI_API_KEY).")
-    if genai is None:
+    if genai is None or types is None:
         raise RuntimeError("google-genai package not installed. Run: pip install google-genai")
 
     client = genai.Client(api_key=api_key)
 
-    # We attempt a best-effort image generation call. If your environment uses a different
-    # endpoint/model, adjust here.
-    #
-    # Many users wrap this in their own thin adapter to pin a specific model.
-    model = os.getenv("GEMINI_IMAGE_MODEL", "gemini-2.0-flash-image")  # change if needed
+    # Use gemini-3-pro-image-preview model (nanobanana pro)
+    model = os.getenv("GEMINI_IMAGE_MODEL", "gemini-3-pro-image-preview")
+
+    # Build content parts
+    parts: list[types.Part] = [types.Part.from_text(text=final_prompt)]
 
     # Reference-guided edit (if a reference image is provided)
     if params.reference:
         ref_b64 = b64_image(params.reference)
-        # Best-effort payload: some deployments accept "input_image" / "image" fields;
-        # if yours differs, update accordingly.
-        resp = client.models.generate_content(
-            model=model,
-            contents=[
-                {"role": "user", "parts": [
-                    {"text": final_prompt},
-                    {"inline_data": {"mime_type": "image/png", "data": ref_b64}},
-                ]}
-            ],
-        )
-    else:
-        resp = client.models.generate_content(
-            model=model,
-            contents=[{"role": "user", "parts": [{"text": final_prompt}]}],
+        parts.append(
+            types.Part.from_inline_data(
+                types.InlineData(
+                    mime_type="image/png",
+                    data=ref_b64,
+                )
+            )
         )
 
-    # Extract first image bytes from response (best-effort).
-    # Different versions may nest fields differently; handle common patterns.
+    contents = [types.Content(role="user", parts=parts)]
+
+    # Configure generation for image response
+    generate_content_config = types.GenerateContentConfig(
+        response_modalities=["IMAGE", "TEXT"],
+        image_config=types.ImageConfig(image_size="1K"),
+    )
+
+    # Stream response and extract image data
     data = None
-    try:
-        # Newer responses often contain candidates -> content -> parts -> inline_data
-        for cand in getattr(resp, "candidates", []) or []:
-            content = getattr(cand, "content", None)
-            parts = getattr(content, "parts", None) if content else None
-            for part in parts or []:
-                inline = getattr(part, "inline_data", None) or getattr(part, "inlineData", None)
-                if inline and getattr(inline, "data", None):
-                    data = inline.data
-                    break
-            if data:
-                break
-    except Exception:
-        data = None
+    for chunk in client.models.generate_content_stream(
+        model=model,
+        contents=contents,
+        config=generate_content_config,
+    ):
+        if (
+            chunk.candidates is None
+            or chunk.candidates[0].content is None
+            or chunk.candidates[0].content.parts is None
+        ):
+            continue
+        if chunk.candidates[0].content.parts[0].inline_data and chunk.candidates[0].content.parts[0].inline_data.data:
+            data = chunk.candidates[0].content.parts[0].inline_data.data
+            break
 
     if not data:
-        # Fallback: serialize response for debugging
-        raise RuntimeError("No image data returned. Set DEBUG=1 and inspect response.")
+        raise RuntimeError("No image data returned from gemini-3-pro-image-preview.")
 
     # Data may be base64 string or bytes
     if isinstance(data, str):
