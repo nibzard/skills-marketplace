@@ -7,11 +7,17 @@
   },
   "metadata": {
     "description": "A comprehensive marketplace for Claude Code Agent Skills with curated collections for development, data analysis, productivity, and security workflows",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homepage": "https://github.com/nibzard/skills-marketplace",
     "repository": "https://github.com/nibzard/skills-marketplace",
     "license": "MIT",
-    "keywords": ["skills", "marketplace", "claude-code", "automation", "productivity"],
+    "keywords": [
+      "skills",
+      "marketplace",
+      "claude-code",
+      "automation",
+      "productivity"
+    ],
     "pluginRoot": "./skills"
   },
   "plugins": [
@@ -19,55 +25,101 @@
       "name": "marimo-notebook",
       "source": "./skills/marimo",
       "description": "Create, edit, and deploy reactive Python notebooks with marimo. Use when working with data analysis, interactive visualizations, web app development, or when you need reproducible computational notebooks.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Data Science Team",
         "email": "datascience@skills-marketplace.dev"
       },
       "homepage": "https://docs.skills-marketplace.dev/skills/marimo-notebook",
       "license": "MIT",
-      "keywords": ["marimo", "notebook", "data-analysis", "reactive", "web-app", "dashboard"],
+      "keywords": [
+        "marimo",
+        "notebook",
+        "data-analysis",
+        "reactive",
+        "web-app",
+        "dashboard"
+      ],
       "category": "data-analytics",
-      "tags": ["marimo", "notebook", "reactive", "python", "data-science", "interactive"],
+      "tags": [
+        "marimo",
+        "notebook",
+        "reactive",
+        "python",
+        "data-science",
+        "interactive"
+      ],
       "strict": true
     },
     {
       "name": "claude-thread-publisher",
       "source": "./skills/claude-thread-publisher",
       "description": "Publish Claude Code conversation threads as static HTML pages hosted on GitHub Gists, with shareable gistpreview permalinks. Use when you want to share, export, or archive Claude Code conversations.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Publishing Team",
         "email": "publishing@skills-marketplace.dev"
       },
       "homepage": "https://docs.skills-marketplace.dev/skills/claude-thread-publisher",
       "license": "MIT",
-      "keywords": ["thread-publisher", "gists", "sharing", "html", "export", "github", "conversation"],
+      "keywords": [
+        "thread-publisher",
+        "gists",
+        "sharing",
+        "html",
+        "export",
+        "github",
+        "conversation"
+      ],
       "category": "productivity",
-      "tags": ["sharing", "threads", "gists", "html", "export", "github", "productivity"],
+      "tags": [
+        "sharing",
+        "threads",
+        "gists",
+        "html",
+        "export",
+        "github",
+        "productivity"
+      ],
       "strict": true
     },
     {
       "name": "brand-illustrator",
       "source": "./skills/brand-illustrator",
       "description": "Generate Builder Methods hand-drawn line art illustrations (icons, scenes, periphery) with a single accent color (Coral/Teal/Indigo/Amber). Use for blog headers, thumbnails, course graphics, social posts, and on-brand UI/tech metaphors.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "nibzard",
         "email": "nibzard@github.com"
       },
       "homepage": "https://docs.skills-marketplace.dev/skills/brand-illustrator",
       "license": "MIT",
-      "keywords": ["illustration", "branding", "graphics", "design", "builder-methods", "visual-identity", "hand-drawn"],
+      "keywords": [
+        "illustration",
+        "branding",
+        "graphics",
+        "design",
+        "builder-methods",
+        "visual-identity",
+        "hand-drawn"
+      ],
       "category": "productivity",
-      "tags": ["illustration", "branding", "design", "graphics", "visual-identity", "builder-methods", "productivity"],
+      "tags": [
+        "illustration",
+        "branding",
+        "design",
+        "graphics",
+        "visual-identity",
+        "builder-methods",
+        "productivity"
+      ],
       "strict": true
     },
     {
       "name": "marp-slide-quality",
       "source": "./skills/marp-slide-quality",
       "description": "Analyze and improve Marp markdown presentations using SlideGauge. Use when working with Marp presentations, slide decks, or when user asks to check, analyze, improve, or validate slide quality.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "nibzard",
         "email": "nibzard@github.com"
@@ -75,25 +127,52 @@
       "homepage": "https://github.com/nibzard/marp-slide-quality",
       "repository": "https://github.com/nibzard/marp-slide-quality",
       "license": "MIT",
-      "keywords": ["marp", "presentations", "slides", "slide-quality", "markdown", "analysis"],
+      "keywords": [
+        "marp",
+        "presentations",
+        "slides",
+        "slide-quality",
+        "markdown",
+        "analysis"
+      ],
       "category": "productivity",
-      "tags": ["presentations", "slides", "markdown", "quality", "analysis"],
+      "tags": [
+        "presentations",
+        "slides",
+        "markdown",
+        "quality",
+        "analysis"
+      ],
       "strict": true
     },
     {
       "name": "pentest-toolkit",
       "source": "./skills/pentest-toolkit",
       "description": "AI-Powered Security Testing Toolkit - Comprehensive penetration testing tools for authorized security assessments. Use when conducting professional security testing, vulnerability assessments, or penetration testing on systems you own or have explicit authorization to test.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Security Testing Team",
         "email": "security@skills-marketplace.dev"
       },
       "homepage": "https://docs.skills-marketplace.dev/skills/pentest-toolkit",
       "license": "MIT",
-      "keywords": ["pentest", "security-testing", "vulnerability-assessment", "penetration-testing", "ethical-hacking", "security-audit"],
+      "keywords": [
+        "pentest",
+        "security-testing",
+        "vulnerability-assessment",
+        "penetration-testing",
+        "ethical-hacking",
+        "security-audit"
+      ],
       "category": "security",
-      "tags": ["security", "testing", "pentest", "vulnerability", "assessment", "authorized-testing"],
+      "tags": [
+        "security",
+        "testing",
+        "pentest",
+        "vulnerability",
+        "assessment",
+        "authorized-testing"
+      ],
       "strict": true
     }
   ]

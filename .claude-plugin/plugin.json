@@ -1,6 +1,6 @@
 {
   "name": "skills-marketplace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin bundling multiple Claude Code Agent Skills (marimo, marp-slide-quality, claude-thread-publisher, pentest-toolkit).",
   "homepage": "https://github.com/nibzard/skills-marketplace",
   "repository": "https://github.com/nibzard/skills-marketplace",
@@ -10,4 +10,3 @@
     "email": "team@skills-marketplace.dev"
   }
 }
-
