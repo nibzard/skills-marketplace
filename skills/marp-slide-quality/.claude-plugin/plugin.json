@@ -1,0 +1,12 @@
+{
+  "name": "marp-slide-quality",
+  "version": "1.0.0",
+  "description": "Analyze and improve Marp markdown presentations using SlideGauge. Use when working with Marp presentations, slide decks, or when user asks to check, analyze, improve, or validate slide quality.",
+  "homepage": "https://github.com/nibzard/marp-slide-quality",
+  "repository": "https://github.com/nibzard/marp-slide-quality",
+  "license": "MIT",
+  "author": {
+    "name": "nibzard",
+    "email": "nibzard@github.com"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "marimo-notebook",
+  "version": "1.0.0",
+  "description": "Assistant for creating, editing, and debugging reactive Python notebooks with marimo. Use when you need to build marimo notebooks, debug reactive execution, add interactive UI elements, or convert traditional notebooks to marimo format.",
+  "homepage": "https://docs.skills-marketplace.dev/skills/marimo-notebook",
+  "license": "MIT",
+  "author": {
+    "name": "Data Science Team",
+    "email": "datascience@skills-marketplace.dev"
+  }
+}
