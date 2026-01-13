@@ -174,6 +174,35 @@
         "authorized-testing"
       ],
       "strict": true
+    },
+    {
+      "name": "skill-creator",
+      "source": "./skills/skill-creator",
+      "description": "Create new Agent Skills interactively or from templates. Use when building custom skills, scaffolding new capabilities, or when user mentions creating skills, writing skills, skill templates, or skill development.",
+      "version": "1.0.0",
+      "author": {
+        "name": "nibzard",
+        "email": "nibzard@github.com"
+      },
+      "homepage": "https://docs.skills-marketplace.dev/skills/skill-creator",
+      "license": "MIT",
+      "keywords": [
+        "skills",
+        "creator",
+        "generator",
+        "scaffold",
+        "templates",
+        "developer-tools"
+      ],
+      "category": "productivity",
+      "tags": [
+        "skills",
+        "productivity",
+        "developer-tools",
+        "templates",
+        "generator"
+      ],
+      "strict": true
     }
   ]
 }
