@@ -41,18 +41,23 @@ def extract_video_id(url):
 
 
 def get_transcript(video_id, include_timestamps=True):
-    """Get transcript for a single video."""
+    """Get transcript for a single video. Returns (snippets, metadata) or None."""
     try:
-        transcript = YouTubeTranscriptApi.get_transcript(video_id)
-        return transcript
+        api = YouTubeTranscriptApi()
+        fetched = api.fetch(video_id)
+        metadata = {
+            "language": fetched.language,
+            "language_code": fetched.language_code,
+        }
+        return fetched.snippets, metadata
     except Exception as e:
-        return None
+        return None, None
 
 
-def format_transcript(transcript, include_timestamps=True):
+def format_transcript(snippets, include_timestamps=True):
     """Format transcript for output."""
     lines = []
-    for snippet in transcript:
+    for snippet in snippets:
         if include_timestamps:
             lines.append(f"{snippet.start:.2f}  {snippet.text}")
         else:
@@ -84,14 +89,20 @@ def main():
             print(f"Error: Invalid YouTube URL: {url}", file=sys.stderr)
             continue
 
-        transcript = get_transcript(video_id)
+        snippets, metadata = get_transcript(video_id)
 
-        if transcript is None:
+        if snippets is None:
             print(f"Error: Could not fetch transcript for: {url}", file=sys.stderr)
             continue
 
-        formatted = format_transcript(transcript, not args.no_timestamps)
-        all_transcripts.append(f"# Transcript for {url} (Video ID: {video_id})\n\n{formatted}")
+        formatted = format_transcript(snippets, not args.no_timestamps)
+        header = (
+            f"# Transcript for {url}\n"
+            f"# Video ID: {video_id}\n"
+            f"# Language: {metadata['language']} ({metadata['language_code']})\n"
+            f"# Snippets: {len(snippets)}\n"
+        )
+        all_transcripts.append(f"{header}\n{formatted}")
 
     if not all_transcripts:
         print("Error: No transcripts could be fetched.", file=sys.stderr)
