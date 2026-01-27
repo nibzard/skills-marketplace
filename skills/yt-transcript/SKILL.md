@@ -1,7 +1,10 @@
 ---
 name: yt-transcript
 description: Fetch transcripts from YouTube videos. Use when user asks to get, download, extract, or retrieve YouTube video transcripts, captions, or subtitles. Also activates for video content analysis, summarizing YouTube videos, or processing video content.
-allowed-tools: Read, Write, Bash
+allowed-tools:
+  - Read
+  - Write
+  - Bash
 ---
 
 # YouTube Transcript Skill

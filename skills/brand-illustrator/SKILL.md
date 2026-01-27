@@ -1,7 +1,11 @@
 ---
 name: brand-illustrator
 description: Generate Builder Methods hand-drawn line art illustrations (icons, scenes, periphery) with a single accent color (Coral/Teal/Indigo/Amber). Use for blog headers, thumbnails, course graphics, social posts, and on-brand UI/tech metaphors.
-allowed-tools: Bash, Read, Write, Edit
+allowed-tools:
+  - Bash
+  - Read
+  - Write
+  - Edit
 ---
 
 # Builder Methods Brand Illustrator

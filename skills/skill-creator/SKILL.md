@@ -1,7 +1,10 @@
 ---
 name: skill-creator
 description: Create new Agent Skills interactively or from templates. Use when user wants to create, generate, scaffold, or build a new skill, or mentions creating skills, writing skills, skill templates, skill development.
-allowed-tools: Read, Write, Edit
+allowed-tools:
+  - Read
+  - Write
+  - Edit
 ---
 
 # Skill Creator
