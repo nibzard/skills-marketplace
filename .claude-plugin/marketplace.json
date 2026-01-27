@@ -203,6 +203,38 @@
         "generator"
       ],
       "strict": true
+    },
+    {
+      "name": "yt-transcript",
+      "source": "./skills/yt-transcript",
+      "description": "Fetch transcripts from YouTube videos for analysis, summarization, or content processing. Use when user asks to get, download, extract, or retrieve YouTube video transcripts, captions, or subtitles.",
+      "version": "1.0.0",
+      "author": {
+        "name": "nibzard",
+        "email": "nibzard@github.com"
+      },
+      "homepage": "https://docs.skills-marketplace.dev/skills/yt-transcript",
+      "license": "MIT",
+      "keywords": [
+        "youtube",
+        "transcript",
+        "video",
+        "captions",
+        "subtitles",
+        "content-analysis",
+        "summarization"
+      ],
+      "category": "productivity",
+      "tags": [
+        "youtube",
+        "transcript",
+        "video",
+        "captions",
+        "content",
+        "analysis",
+        "productivity"
+      ],
+      "strict": true
     }
   ]
 }
