@@ -1,12 +1,7 @@
 ---
 name: marp-slide-quality
 description: Analyze and improve Marp markdown presentations using SlideGauge. Use when working with Marp presentations, slide decks, or when user asks to check, analyze, improve, or validate slide quality.
-allowed-tools:
-  - Read
-  - Edit
-  - Grep
-  - Glob
-  - Bash(uvx:*)
+allowed-tools: Read, Edit, Grep, Glob, Bash(uvx:*)
 ---
 
 # Marp Slide Quality Skill
