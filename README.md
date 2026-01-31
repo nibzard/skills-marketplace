@@ -25,80 +25,87 @@ Agent Skills are modular capabilities that extend Claude's functionality through
 
 ## Quick Start
 
-### 1. Install the Plugin
+### 1. Add the Marketplace
 
 ```bash
-# Install directly from GitHub (recommended)
-/plugin install nibzard/skills-marketplace
+# Add the marketplace from GitHub (recommended)
+/plugin marketplace add nibzard/skills-marketplace
 
-# Or install from a local clone
+# Or add from a local clone
 git clone https://github.com/nibzard/skills-marketplace.git
-/plugin install ./skills-marketplace
+/plugin marketplace add ./skills-marketplace
 ```
 
-### 2. Browse Available Skills
+### 2. Browse Available Plugins
 
 ```bash
-# List all available skills
-What Skills are available?
-
-# Or interactively browse
+# Open the plugin manager
 /plugin
 ```
 
-### 3. Use the Skills
+### 3. Install and Use Plugins
 
-Once the plugin is installed, Claude lists available Skills and invokes them automatically when relevant to your request.
+Install a plugin from this marketplace, then invoke its skills with the plugin namespace:
+
+```bash
+/plugin install yt-transcript@skills-marketplace
+/yt-transcript:yt-transcript <url>
+```
 
 ## Marketplace Structure
 
 ```
 skills-marketplace/
 ├── .claude-plugin/
-│   └── plugin.json           # Plugin manifest
-├── .claude/skills/           # Project-specific skills
-├── skills/                    # Distributed skill packages
-│   ├── marimo/
+│   └── marketplace.json       # Marketplace catalog
+├── skills/                    # Plugin directories
+│   ├── marimo/                # .claude-plugin/plugin.json + skills/
 │   ├── marp-slide-quality/
 │   ├── claude-thread-publisher/
-│   └── pentest-toolkit/
-├── examples/                  # Example skills and templates
+│   ├── pentest-toolkit/
+│   ├── release-runbook/
+│   ├── skill-creator/
+│   ├── yt-transcript/
+│   └── brand-illustrator/
 ├── docs/                      # Additional documentation
 └── README.md                  # This file
 ```
 
 ## Available Skills
 
-### Bundled Skills
+### Available Plugins
 
 - **marimo**: Reactive Python notebook assistant
 - **marp-slide-quality**: Analyze Marp slides with SlideGauge
 - **claude-thread-publisher**: Publish Claude threads to GitHub Gists
 - **pentest-toolkit**: Agent-oriented security testing scripts
+- **release-runbook**: Release preparation and publishing workflow
+- **skill-creator**: Create new Agent Skills from templates
+- **yt-transcript**: Fetch YouTube transcripts for analysis
+- **brand-illustrator**: Generate on-brand line art illustrations
 
 ## Installation Methods
 
 ### For Users
 
-1. **Install as Plugin** (Recommended):
+1. **Add the marketplace**:
    ```bash
-   /plugin install nibzard/skills-marketplace
+   /plugin marketplace add nibzard/skills-marketplace
    ```
 
-2. **Manual Installation of Individual Skills**:
+2. **Install a plugin**:
    ```bash
-   git clone https://github.com/nibzard/skills-marketplace.git
-   mkdir -p ~/.claude/skills
-   cp -r skills-marketplace/skills/<skill-name> ~/.claude/skills/
+   /plugin install yt-transcript@skills-marketplace
    ```
 
 ### For Developers
 
 1. **Fork and Customize**:
    ```bash
-   # Fork on GitHub, then add your fork
-   /plugin install your-username/skills-marketplace
-   # Add your custom skills to the forked repository
+   # Fork on GitHub, then add your fork as a marketplace
+   /plugin marketplace add your-username/skills-marketplace
+   # Install plugins from your fork
+   /plugin install yt-transcript@skills-marketplace
    ```
 
 2. **Create Private Plugin**:

@@ -94,13 +94,13 @@ When the user wants to update an existing published thread:
 
 #### Session Location
 ```bash
-python scripts/session_locator.py --mode current
+python ${CLAUDE_PLUGIN_ROOT}/skills/claude-thread-publisher/scripts/session_locator.py --mode current
 ```
 Returns JSON with session file path and project information.
 
 #### Thread Rendering
 ```bash
-python scripts/render_thread.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/claude-thread-publisher/scripts/render_thread.py \
   --input /path/to/session.jsonl \
   --output-html /tmp/thread.html \
   --output-json /tmp/thread.json \
@@ -111,7 +111,7 @@ python scripts/render_thread.py \
 
 #### Gist Publishing
 ```bash
-python scripts/publish_to_gist.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/claude-thread-publisher/scripts/publish_to_gist.py \
   --html /tmp/thread.html \
   --thread-json /tmp/thread.json \
   --metadata /tmp/metadata.json \
@@ -121,7 +121,7 @@ python scripts/publish_to_gist.py \
 
 #### Gist Deletion
 ```bash
-python scripts/delete_gist.py \
+python ${CLAUDE_PLUGIN_ROOT}/skills/claude-thread-publisher/scripts/delete_gist.py \
   --thread-hash <hash>  # or --session-file /path/to/session.jsonl
 ```
 

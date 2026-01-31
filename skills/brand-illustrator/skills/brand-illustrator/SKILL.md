@@ -72,7 +72,7 @@ Get an API key from: https://ai.google.dev/
 
    Example:
    ```bash
-   python3 scripts/generate.py \
+   python3 ${CLAUDE_PLUGIN_ROOT}/skills/brand-illustrator/scripts/generate.py \
      --prompt "A worn leather notebook open to a page with handwritten wireframe sketches" \
      --color coral \
      --type scene \

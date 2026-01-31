@@ -17,12 +17,11 @@
       "claude-code",
       "automation",
       "productivity"
-    ],
-    "pluginRoot": "./skills"
+    ]
   },
   "plugins": [
     {
-      "name": "marimo-notebook",
+      "name": "marimo",
       "source": "./skills/marimo",
       "description": "Create, edit, and deploy reactive Python notebooks with marimo. Use when working with data analysis, interactive visualizations, web app development, or when you need reproducible computational notebooks.",
       "version": "1.0.1",
@@ -30,7 +29,7 @@
         "name": "Data Science Team",
         "email": "datascience@skills-marketplace.dev"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/marimo-notebook",
+      "homepage": "https://docs.skills-marketplace.dev/skills/marimo",
       "license": "MIT",
       "keywords": [
         "marimo",
@@ -201,6 +200,34 @@
         "developer-tools",
         "templates",
         "generator"
+      ],
+      "strict": true
+    },
+    {
+      "name": "release-runbook",
+      "source": "./skills/release-runbook",
+      "description": "Universal release workflow: detect project type, init versioning, run tests, bump version, tag, push, and create GitHub release. Use when cutting releases or publishing new versions.",
+      "version": "1.0.0",
+      "author": {
+        "name": "nibzard",
+        "email": "nibzard@github.com"
+      },
+      "homepage": "https://docs.skills-marketplace.dev/skills/release-runbook",
+      "license": "MIT",
+      "keywords": [
+        "release",
+        "versioning",
+        "tagging",
+        "changelog",
+        "publishing"
+      ],
+      "category": "devops",
+      "tags": [
+        "release",
+        "automation",
+        "versioning",
+        "publishing",
+        "devops"
       ],
       "strict": true
     },

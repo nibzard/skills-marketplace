@@ -4,47 +4,63 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **Claude Code Plugin** that bundles multiple **Agent Skills** for distribution. Agent Skills are model-invoked capabilities—Claude autonomously selects and uses them based on request context and the Skill's description.
+This repository is a **Claude Code plugin marketplace** that catalogs multiple plugins. Each plugin bundles one or more **Agent Skills**.
 
-**Installation**: `/plugin install nibzard/skills-marketplace`
+**Install marketplace**: `/plugin marketplace add nibzard/skills-marketplace`
 
 ## Architecture
 
-### Plugin Bundle Structure
+### Marketplace Structure
 
 ```
 skills-marketplace/
 ├── .claude-plugin/
-│   ├── plugin.json           # Plugin metadata
-│   └── marketplace.json      # Skills catalog (auto-discovers skills/)
-├── skills/                   # Bundled Agent Skills
-│   ├── marimo/              # Reactive Python notebooks
-│   ├── claude-thread-publisher/  # Export threads to GitHub Gists
-│   ├── marp-slide-quality/  # Analyze Marp presentations
-│   └── pentest-toolkit/     # Security testing toolkit
-└── docs/                    # Documentation
+│   └── marketplace.json      # Marketplace catalog
+├── skills/                   # Plugin directories
+│   ├── marimo/               # .claude-plugin/plugin.json + skills/
+│   ├── claude-thread-publisher/
+│   ├── marp-slide-quality/
+│   ├── pentest-toolkit/
+│   ├── release-runbook/
+│   ├── skill-creator/
+│   ├── yt-transcript/
+│   └── brand-illustrator/
+└── docs/                     # Documentation
 ```
 
 ### Agent Skills Pattern
 
-Skills are **model-invoked**, not user-invoked. Claude discovers them via:
+Skills are **model-invoked**, and can also be invoked directly via the plugin namespace. Claude discovers them via:
 1. Personal: `~/.claude/skills/`
 2. Project: `.claude/skills/`
-3. Plugin: Bundled with installed plugins
+3. Plugin: Bundled with installed plugins (namespaced as `/plugin-name:skill-name`)
 
 **Skill Discovery**: Claude matches user requests against Skill `description` frontmatter. Be specific about when to use the skill.
 
 **Progressive Disclosure**: `SKILL.md` is always loaded; supporting files (`reference.md`, `examples.md`, scripts) load only when referenced.
 
-## Adding New Skills
+## Adding New Plugins / Skills
 
-### 1. Create Skill Directory
+### 1. Create Plugin Directory
 
 ```bash
-mkdir skills/your-skill-name
+mkdir skills/your-plugin-name
 ```
 
-### 2. Create SKILL.md with Frontmatter
+### 2. Create Plugin Manifest and Skill
+
+```bash
+mkdir -p skills/your-plugin-name/.claude-plugin
+cat > skills/your-plugin-name/.claude-plugin/plugin.json <<'EOF'
+{
+  "name": "your-plugin-name",
+  "description": "Short description for the plugin manager",
+  "version": "1.0.0"
+}
+EOF
+
+mkdir -p skills/your-plugin-name/skills/your-skill-name
+```
 
 ```yaml
 ---
@@ -65,21 +81,18 @@ allowed-tools: Read, Write, Edit  # Optional: restrict tool access
 [Dependencies and prerequisites]
 ```
 
-### 3. No Manifest Edits Required
+### 3. Update Marketplace Catalog
 
-Skills are auto-discovered from `skills/*/SKILL.md`. The `marketplace.json` is for display purposes only.
+Add your plugin to `.claude-plugin/marketplace.json` so it appears in the marketplace.
 
 ### 4. Test Locally
 
 ```bash
-# Reinstall plugin to discover new Skill
-/plugin install .
+# Add the marketplace locally (once)
+/plugin marketplace add .
 
-# Verify discovery
-What Skills are available?
-
-# Test invocation
-[Ask a question that should trigger your skill]
+# Install the plugin from the marketplace
+/plugin install your-plugin-name@skills-marketplace
 ```
 
 ## Frontmatter Specification
@@ -100,7 +113,8 @@ There are no automated tests. Skills are validated through:
 
 Test locally before committing:
 ```bash
-/plugin install .
+/plugin marketplace add .
+/plugin install your-plugin-name@skills-marketplace
 ```
 
 ## Environment Variables in Skills
@@ -110,7 +124,7 @@ Test locally before committing:
 
 Use `${CLAUDE_PLUGIN_ROOT}` for portable paths to scripts/templates:
 ```bash
-python ${CLAUDE_PLUGIN_ROOT}/scripts/helper.py input.xlsx
+python ${CLAUDE_PLUGIN_ROOT}/skills/your-skill-name/scripts/helper.py input.xlsx
 ```
 
 ## Tool Permissions
@@ -127,12 +141,12 @@ Benefits: Security, focus, reduced permission prompts.
 
 ## Distribution
 
-This repo is distributed as a single plugin via GitHub. Users install with:
+This repo is distributed as a marketplace via GitHub. Users add it with:
 ```bash
-/plugin install nibzard/skills-marketplace
+/plugin marketplace add nibzard/skills-marketplace
 ```
 
-All bundled skills become available immediately. No marketplace mode—just a plugin bundle.
+Plugins are installed individually from the marketplace.
 
 ## Documentation References
 
@@ -143,7 +157,7 @@ All bundled skills become available immediately. No marketplace mode—just a pl
 
 ## Key Constraints
 
-- **No marketplace mode**: This is a plugin bundle, not a marketplace
-- **Auto-discovery**: Skills under `skills/*/SKILL.md` are discovered automatically
-- **Model-invoked**: Skills are triggered by semantic matching, not slash commands
+- **Marketplace catalog**: Plugins must be listed in `.claude-plugin/marketplace.json`
+- **Plugin structure**: Each plugin must contain `.claude-plugin/plugin.json` and `skills/<skill>/SKILL.md`
+- **Namespacing**: Plugin skills are invoked as `/plugin-name:skill-name`
 - **Progressive loading**: Keep `SKILL.md` focused; reference additional files as needed
