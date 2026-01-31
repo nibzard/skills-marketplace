@@ -207,7 +207,7 @@
     {
       "name": "yt-transcript",
       "source": "./skills/yt-transcript",
-      "description": "Fetch transcripts from YouTube videos for analysis, summarization, or content processing. Use when user asks to get, download, extract, or retrieve YouTube video transcripts, captions, or subtitles.",
+      "description": "Fetch transcripts from YouTube videos. Use when user asks to get, download, extract, or retrieve YouTube video transcripts, captions, or subtitles. Also activates for video content analysis, summarizing YouTube videos, or processing video content.",
       "version": "1.0.0",
       "author": {
         "name": "nibzard",
