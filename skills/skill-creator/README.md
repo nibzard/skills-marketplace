@@ -6,7 +6,7 @@ A meta-skill for creating new Agent Skills in Claude Code. Generate skills throu
 
 1. **Install** this plugin:
    ```
-   /plugin install nibzard/skills-marketplace
+   /plugin install nibzard/skills-kit
    ```
 
 2. **Create a skill**:
@@ -186,7 +186,7 @@ Processes structured data. Supports:
 
 ## Contributing
 
-This skill is part of the [skills-marketplace](https://github.com/nibzard/skills-marketplace) collection. Contributions welcome!
+This skill is part of the [skills-kit](https://github.com/nibzard/skills-kit) collection. Contributions welcome!
 
 ## License
 
@@ -200,4 +200,4 @@ nibzard - [GitHub](https://github.com/nibzard)
 
 - [Agent Skills Documentation](https://code.claude.com/docs/en/agents-and-tools/agent-skills)
 - [Skills Best Practices](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/best-practices)
-- [skills-marketplace](https://github.com/nibzard/skills-marketplace)
+- [skills-kit](https://github.com/nibzard/skills-kit)

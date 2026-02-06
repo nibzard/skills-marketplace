@@ -1,6 +1,6 @@
 # Contributing to Skills Marketplace
 
-Note: This repository is distributed as a single Claude Code plugin that bundles multiple Skills. Marketplace mode and `.claude-plugin/marketplace.json` are deprecated here. Install via `/plugin install nibzard/skills-marketplace` and add new Skills under `skills/<your-skill>/`.
+Note: This repository is distributed as a single Claude Code plugin that bundles multiple Skills. Marketplace mode and `.claude-plugin/marketplace.json` are deprecated here. Install via `/plugin install nibzard/skills-kit` and add new Skills under `skills/<your-skill>/`.
 
 Thank you for your interest in contributing to the Skills Marketplace! This guide will help you get started with contributing skills, improving documentation, and enhancing the marketplace ecosystem.
 
@@ -31,13 +31,13 @@ Thank you for your interest in contributing to the Skills Marketplace! This guid
 1. **Fork the Repository**:
    ```bash
    # Fork on GitHub, then clone your fork
-   git clone https://github.com/your-username/skills-marketplace.git
-   cd skills-marketplace
+   git clone https://github.com/your-username/skills-kit.git
+   cd skills-kit
    ```
 
 2. **Add Upstream Remote**:
    ```bash
-   git remote add upstream https://github.com/skills-marketplace/skills-marketplace.git
+   git remote add upstream https://github.com/nibzard/skills-kit.git
    ```
 
 3. **Create Development Branch**:

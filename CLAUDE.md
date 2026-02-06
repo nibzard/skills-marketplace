@@ -6,14 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository is a **Claude Code plugin marketplace** that catalogs multiple plugins. Each plugin bundles one or more **Agent Skills**.
 
-**Install marketplace**: `/plugin marketplace add nibzard/skills-marketplace`
+**Install marketplace**: `/plugin marketplace add nibzard/skills-kit`
 
 ## Architecture
 
 ### Marketplace Structure
 
 ```
-skills-marketplace/
+skills-kit/
 ├── .claude-plugin/
 │   └── marketplace.json      # Marketplace catalog
 ├── skills/                   # Plugin directories
@@ -92,7 +92,7 @@ Add your plugin to `.claude-plugin/marketplace.json` so it appears in the market
 /plugin marketplace add .
 
 # Install the plugin from the marketplace
-/plugin install your-plugin-name@skills-marketplace
+/plugin install your-plugin-name@skills-kit
 ```
 
 ## Frontmatter Specification
@@ -114,7 +114,7 @@ There are no automated tests. Skills are validated through:
 Test locally before committing:
 ```bash
 /plugin marketplace add .
-/plugin install your-plugin-name@skills-marketplace
+/plugin install your-plugin-name@skills-kit
 ```
 
 ## Environment Variables in Skills
@@ -143,7 +143,7 @@ Benefits: Security, focus, reduced permission prompts.
 
 This repo is distributed as a marketplace via GitHub. Users add it with:
 ```bash
-/plugin marketplace add nibzard/skills-marketplace
+/plugin marketplace add nibzard/skills-kit
 ```
 
 Plugins are installed individually from the marketplace.

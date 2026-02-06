@@ -1,15 +1,15 @@
 {
-  "name": "skills-marketplace",
+  "name": "skills-kit",
   "owner": {
-    "name": "Skills Marketplace Team",
-    "email": "team@skills-marketplace.dev",
-    "url": "https://github.com/skills-marketplace/core"
+    "name": "Skills Kit Team",
+    "email": "wave@nibzard.com",
+    "url": "https://github.com/nibzard/skills-kit"
   },
   "metadata": {
     "description": "A comprehensive marketplace for Claude Code Agent Skills with curated collections for development, data analysis, productivity, and security workflows",
     "version": "1.0.1",
-    "homepage": "https://github.com/nibzard/skills-marketplace",
-    "repository": "https://github.com/nibzard/skills-marketplace",
+    "homepage": "https://github.com/nibzard/skills-kit",
+    "repository": "https://github.com/nibzard/skills-kit",
     "license": "MIT",
     "keywords": [
       "skills",
@@ -27,9 +27,9 @@
       "version": "1.0.1",
       "author": {
         "name": "Data Science Team",
-        "email": "datascience@skills-marketplace.dev"
+        "email": "wave@nibzard.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/marimo",
+      "homepage": "https://nibzard.com/skills/marimo",
       "license": "MIT",
       "keywords": [
         "marimo",
@@ -57,9 +57,9 @@
       "version": "1.0.1",
       "author": {
         "name": "Publishing Team",
-        "email": "publishing@skills-marketplace.dev"
+        "email": "wave@nibzard.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/claude-thread-publisher",
+      "homepage": "https://nibzard.com/skills/claude-thread-publisher",
       "license": "MIT",
       "keywords": [
         "thread-publisher",
@@ -91,7 +91,7 @@
         "name": "nibzard",
         "email": "nibzard@github.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/brand-illustrator",
+      "homepage": "https://nibzard.com/skills/brand-illustrator",
       "license": "MIT",
       "keywords": [
         "illustration",
@@ -151,9 +151,9 @@
       "version": "1.0.1",
       "author": {
         "name": "Security Testing Team",
-        "email": "security@skills-marketplace.dev"
+        "email": "wave@nibzard.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/pentest-toolkit",
+      "homepage": "https://nibzard.com/skills/pentest-toolkit",
       "license": "MIT",
       "keywords": [
         "pentest",
@@ -183,7 +183,7 @@
         "name": "nibzard",
         "email": "nibzard@github.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/skill-creator",
+      "homepage": "https://nibzard.com/skills/skill-creator",
       "license": "MIT",
       "keywords": [
         "skills",
@@ -212,7 +212,7 @@
         "name": "nibzard",
         "email": "nibzard@github.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/release-runbook",
+      "homepage": "https://nibzard.com/skills/release-runbook",
       "license": "MIT",
       "keywords": [
         "release",
@@ -240,7 +240,7 @@
         "name": "nibzard",
         "email": "nibzard@github.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/tmux",
+      "homepage": "https://nibzard.com/skills/tmux",
       "license": "MIT",
       "keywords": [
         "tmux",
@@ -272,7 +272,7 @@
         "name": "nibzard",
         "email": "nibzard@github.com"
       },
-      "homepage": "https://docs.skills-marketplace.dev/skills/yt-transcript",
+      "homepage": "https://nibzard.com/skills/yt-transcript",
       "license": "MIT",
       "keywords": [
         "youtube",

@@ -2,7 +2,7 @@
   "name": "tmux",
   "version": "1.0.0",
   "description": "Use tmux to run and test interactive CLI/TUI applications end-to-end. Includes utilities to start sessions, send keys, capture output, and cleanly stop processes.",
-  "homepage": "https://docs.skills-marketplace.dev/skills/tmux",
+  "homepage": "https://nibzard.com/skills/tmux",
   "license": "MIT",
   "author": {
     "name": "nibzard",

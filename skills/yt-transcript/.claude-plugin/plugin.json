@@ -2,7 +2,7 @@
   "name": "yt-transcript",
   "version": "1.0.0",
   "description": "Fetch transcripts from YouTube videos. Use when user asks to get, download, extract, or retrieve YouTube video transcripts, captions, or subtitles. Also activates for video content analysis, summarizing YouTube videos, or processing video content.",
-  "homepage": "https://docs.skills-marketplace.dev/skills/yt-transcript",
+  "homepage": "https://nibzard.com/skills/yt-transcript",
   "license": "MIT",
   "author": {
     "name": "nibzard",

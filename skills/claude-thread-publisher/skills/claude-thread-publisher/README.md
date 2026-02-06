@@ -7,7 +7,7 @@ A comprehensive skill for publishing Claude Code conversation threads as beautif
 ### Installation
 ```bash
 # Install the plugin bundle
-/plugin install nibzard/skills-marketplace
+/plugin install nibzard/skills-kit
 ```
 
 ### Basic Usage

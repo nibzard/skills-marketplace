@@ -43,12 +43,12 @@ scripts/tmuxctl.sh kill
 
 ## Installation
 
-This skill is part of the [Skills Marketplace](https://github.com/nibzard/skills-marketplace).
+This skill is part of the [Skills Marketplace](https://github.com/nibzard/skills-kit).
 
 Install via the marketplace plugin:
 
 ```bash
-/plugin install nibzard/skills-marketplace
+/plugin install nibzard/skills-kit
 ```
 
 ## Skill Behavior

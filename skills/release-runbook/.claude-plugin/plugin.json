@@ -2,7 +2,7 @@
   "name": "release-runbook",
   "version": "1.0.0",
   "description": "Universal release workflow: detect project type, init versioning, run tests, bump version, tag, push, and create GitHub release.",
-  "homepage": "https://docs.skills-marketplace.dev/skills/release-runbook",
+  "homepage": "https://nibzard.com/skills/release-runbook",
   "license": "MIT",
   "author": {
     "name": "nibzard",

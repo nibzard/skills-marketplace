@@ -1,6 +1,6 @@
 # Marketplace Management Guide
 
-Note: This repository ships as a plugin marketplace. The guidance below describes marketplace distribution generally; for this repo’s current installation, see the root README and use `/plugin marketplace add nibzard/skills-marketplace`.
+Note: This repository ships as a plugin marketplace. The guidance below describes marketplace distribution generally; for this repo’s current installation, see the root README and use `/plugin marketplace add nibzard/skills-kit`.
 
 This comprehensive guide covers how to create, manage, and distribute skills marketplaces for Claude Code. Learn how to set up marketplaces for teams, organizations, and public communities.
 
@@ -48,8 +48,8 @@ Create a new git repository for your marketplace:
 
 ```bash
 # Create new repository
-mkdir my-skills-marketplace
-cd my-skills-marketplace
+mkdir my-skills-kit
+cd my-skills-kit
 git init
 
 # Create directory structure
@@ -62,7 +62,7 @@ Create `.claude-plugin/marketplace.json`:
 
 ```json
 {
-  "name": "my-skills-marketplace",
+  "name": "my-skills-kit",
   "owner": {
     "name": "Your Name/Organization",
     "email": "contact@example.com"
@@ -70,7 +70,7 @@ Create `.claude-plugin/marketplace.json`:
   "metadata": {
     "description": "A collection of custom skills for specific workflows",
     "version": "1.0.0",
-    "homepage": "https://github.com/your-org/my-skills-marketplace",
+    "homepage": "https://github.com/your-org/my-skills-kit",
     "license": "MIT"
   },
   "plugins": [
@@ -126,11 +126,11 @@ Deploy your marketplace and make it available:
 # Commit and push to git
 git add .
 git commit -m "Initial marketplace setup"
-git remote add origin https://github.com/your-org/my-skills-marketplace.git
+git remote add origin https://github.com/your-org/my-skills-kit.git
 git push -u origin main
 
 # Share with users:
-# /plugin marketplace add your-org/my-skills-marketplace
+# /plugin marketplace add your-org/my-skills-kit
 ```
 
 ## Marketplace Configuration
@@ -237,7 +237,7 @@ For skills in the same repository:
 
 ```bash
 # Add marketplace
-/plugin marketplace add your-org/my-skills-marketplace
+/plugin marketplace add your-org/my-skills-kit
 
 # Browse available skills
 /plugin
@@ -317,7 +317,7 @@ When team members trust a repository folder, Claude Code automatically:
 Output:
 ```
 Known Marketplaces:
-- skills-marketplace (local) - /path/to/skills-marketplace
+- skills-kit (local) - /path/to/skills-kit
 - team-skills (github) - your-org/team-skills
 - official (github) - anthropics/claude-code
 ```
@@ -406,8 +406,8 @@ This operation:
 **Setup:**
 ```bash
 # Create repository
-gh repo create your-org/skills-marketplace --public --clone
-cd skills-marketplace
+gh repo create your-org/skills-kit --public --clone
+cd skills-kit
 
 # Add marketplace configuration
 # Add skills
@@ -435,8 +435,8 @@ git push origin main
 ```bash
 # Create repository on GitLab
 # Clone repository
-git clone https://gitlab.com/your-org/skills-marketplace.git
-cd skills-marketplace
+git clone https://gitlab.com/your-org/skills-kit.git
+cd skills-kit
 
 # Add marketplace configuration and skills
 git add .
@@ -456,8 +456,8 @@ git push origin main
 ```bash
 # Setup internal git server
 # Create repository
-git clone https://git.company.com/skills-marketplace.git
-cd skills-marketplace
+git clone https://git.company.com/skills-kit.git
+cd skills-kit
 
 # Configure marketplace
 git add .
@@ -518,8 +518,8 @@ mkdir skills/new-skill
 # Create skill files
 
 # 3. Test locally
-/plugin marketplace add ./skills-marketplace
-/plugin install new-skill@skills-marketplace
+/plugin marketplace add ./skills-kit
+/plugin install new-skill@skills-kit
 
 # 4. Commit and create pull request
 git add .
@@ -540,15 +540,15 @@ git push origin new-skill-feature
 
 ```bash
 # Clone repository
-git clone https://github.com/your-org/skills-marketplace.git
-cd skills-marketplace
+git clone https://github.com/your-org/skills-kit.git
+cd skills-kit
 
 # Add marketplace to Claude Code
-/plugin marketplace add ./skills-marketplace
+/plugin marketplace add ./skills-kit
 
 # Install required skills
-/plugin install git-automation@skills-marketplace
-/plugin install code-reviewer@skills-marketplace
+/plugin install git-automation@skills-kit
+/plugin install code-reviewer@skills-kit
 ```
 
 #### 2. Project Configuration
@@ -561,7 +561,7 @@ Create `.claude/settings.json` in team projects:
     "team-skills": {
       "source": {
         "source": "github",
-        "repo": "your-org/skills-marketplace"
+        "repo": "your-org/skills-kit"
       }
     }
   },
@@ -607,8 +607,8 @@ cat .claude-plugin/marketplace.json | jq .
 claude plugin validate ./skills/skill-name
 
 # Test skill installation
-/plugin marketplace add ./skills-marketplace
-/plugin install skill-name@skills-marketplace
+/plugin marketplace add ./skills-kit
+/plugin install skill-name@skills-kit
 ```
 
 ### Testing Strategies
@@ -617,10 +617,10 @@ claude plugin validate ./skills/skill-name
 
 ```bash
 # Test marketplace locally
-/plugin marketplace add ./skills-marketplace
+/plugin marketplace add ./skills-kit
 
 # Test skill installation
-/plugin install test-skill@skills-marketplace
+/plugin install test-skill@skills-kit
 
 # Test skill functionality
 # Ask Claude to use the skill
@@ -636,7 +636,7 @@ git checkout -b staging
 git push origin staging
 
 # Test staging marketplace
-/plugin marketplace add https://github.com/your-org/skills-marketplace/tree/staging
+/plugin marketplace add https://github.com/your-org/skills-kit/tree/staging
 ```
 
 #### Automated Testing
