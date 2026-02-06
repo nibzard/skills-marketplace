@@ -232,6 +232,38 @@
       "strict": true
     },
     {
+      "name": "tmux",
+      "source": "./skills/tmux",
+      "description": "Use tmux to run and test interactive CLI/TUI applications end-to-end. Includes utilities to start sessions, send keys, capture output, and cleanly stop processes. Use when testing interactive CLI tools, TUI applications, or commands requiring a real TTY.",
+      "version": "1.0.0",
+      "author": {
+        "name": "nibzard",
+        "email": "nibzard@github.com"
+      },
+      "homepage": "https://docs.skills-marketplace.dev/skills/tmux",
+      "license": "MIT",
+      "keywords": [
+        "tmux",
+        "testing",
+        "cli",
+        "tui",
+        "interactive",
+        "terminal",
+        "automation"
+      ],
+      "category": "productivity",
+      "tags": [
+        "tmux",
+        "testing",
+        "cli",
+        "tui",
+        "interactive",
+        "terminal",
+        "automation"
+      ],
+      "strict": true
+    },
+    {
       "name": "yt-transcript",
       "source": "./skills/yt-transcript",
       "description": "Fetch transcripts from YouTube videos. Use when user asks to get, download, extract, or retrieve YouTube video transcripts, captions, or subtitles. Also activates for video content analysis, summarizing YouTube videos, or processing video content.",
